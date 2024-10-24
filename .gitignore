@@ -1,0 +1,5 @@
+.venv
+**/*.zip
+**/lightning_logs/*
+*.pyc
+*.env
