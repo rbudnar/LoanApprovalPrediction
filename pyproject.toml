@@ -17,6 +17,9 @@ xgboost = "^2.1.2"
 matplotlib = "^3.9.2"
 seaborn = "^0.13.2"
 kaggle = "^1.6.17"
+pyarrow = "^17.0.0"
+graphviz = "^0.20.3"
+cupy-cuda12x = "^13.3.0"
 
 
 [build-system]
