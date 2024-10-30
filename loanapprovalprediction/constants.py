@@ -13,3 +13,13 @@ CATEGORICAL_VARIABLES = [
     "loan_grade",
     "cb_person_default_on_file",
 ]
+
+FINAL_FEATURES= [
+    'loan_grade', 
+    'loan_percent_income', 
+    'person_home_ownership',
+    'person_income', 
+    'loan_intent', 
+    'loan_int_rate',
+    'loan_amnt'
+]
