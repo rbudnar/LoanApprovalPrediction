@@ -24,7 +24,13 @@ ax-platform = "^0.4.3"
 imbalanced-learn = "^0.12.4"
 lightgbm = "^4.5.0"
 catboost = "^1.2.7"
+pandera = "^0.20.4"
 
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+pytest = "^8.3.3"
+mypy = "^1.13.0"
 
 [build-system]
 requires = ["poetry-core"]
