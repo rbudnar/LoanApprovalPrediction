@@ -107,7 +107,7 @@ CATBOOST_PARAMETERS = [
     {
         "name": "cat_depth",
         "type": "range",
-        "bounds": [5, 25],
+        "bounds": [3, 16],
         "value_type": "int",
     },
     {
