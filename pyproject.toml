@@ -25,6 +25,7 @@ imbalanced-learn = "^0.12.4"
 lightgbm = "^4.5.0"
 catboost = "^1.2.7"
 pandera = "^0.20.4"
+tensorboard = "^2.18.0"
 
 
 [tool.poetry.group.dev.dependencies]

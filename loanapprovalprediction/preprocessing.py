@@ -7,10 +7,13 @@ import pandas as pd
 
 class ProcessedDataset(BaseModel):
     X_train: pd.DataFrame
+    X_train_dummies: pd.DataFrame
     X_valid: pd.DataFrame
+    X_valid_dummies: pd.DataFrame
     y_train: pd.Series
     y_valid: pd.Series
     X_test: pd.DataFrame
+    X_test_dummies: pd.DataFrame
     scaler: StandardScaler
 
     class Config:
@@ -20,10 +23,13 @@ class ProcessedDataset(BaseModel):
         return iter(
             (
                 self.X_train,
+                self.X_train_dummies,
                 self.X_valid,
+                self.X_valid_dummies,
                 self.y_train,
                 self.y_valid,
                 self.X_test,
+                self.X_test_dummies,
                 self.scaler,
             )
         )
@@ -93,11 +99,21 @@ def prepare_dataset(
         cont_features=cont_features,
         cat_features=cat_features,
     )
+
+    def get_dummies(data: pd.DataFrame, cat_features: list[str]) -> pd.DataFrame:
+        return pd.concat(
+            [data.drop(columns=cat_features), pd.get_dummies(data[cat_features])],
+            axis=1,
+        )
+
     return ProcessedDataset(
         X_train=X_train,
+        X_train_dummies=get_dummies(X_train, cat_features),
         X_valid=X_valid,
+        X_valid_dummies=get_dummies(X_valid, cat_features),
         y_train=y_train,
         y_valid=y_valid,
         X_test=X_test,
+        X_test_dummies=get_dummies(X_test, cat_features),
         scaler=scaler,
     )
